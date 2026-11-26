@@ -6,11 +6,13 @@
 /*   By: yaperalt <yaperalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 15:37:34 by yaperalt          #+#    #+#             */
-/*   Updated: 2026/11/26 15:28:11 by yaperalt         ###   ########.fr       */
+/*   Updated: 2026/11/26 16:12:01 by yaperalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/fixed.hpp"
+
+// el proposito del ex02, es que los objetos se comporten como numeros normales
 
 int main()
 {

@@ -6,7 +6,7 @@
 /*   By: yaperalt <yaperalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 15:37:34 by yaperalt          #+#    #+#             */
-/*   Updated: 2026/11/26 15:09:40 by yaperalt         ###   ########.fr       */
+/*   Updated: 2026/11/26 16:01:57 by yaperalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int main()
 {
+	//sobrecarga de constructores, llamados segun el tipo de argumento
 	Fixed a;
 	Fixed const b(10);
 	Fixed const c(42.42f);

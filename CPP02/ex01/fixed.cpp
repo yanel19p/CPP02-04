@@ -6,7 +6,7 @@
 /*   By: yaperalt <yaperalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 14:00:16 by yaperalt          #+#    #+#             */
-/*   Updated: 2026/11/26 15:13:19 by yaperalt         ###   ########.fr       */
+/*   Updated: 2026/11/26 16:10:49 by yaperalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed(const Fixed &copy){
 Fixed::Fixed(int const num)//ex01
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_value = num << _bits;
+	this->_value = num << _bits;// desplazar 8 bits equivale a multiplicar por 256
 }
 
 Fixed::Fixed(float const num)//ex01
@@ -57,17 +57,17 @@ void Fixed::setRawBits(int const raw){
     this->_value = raw;
 }
 
-int		Fixed::toInt(void) const//ex01
+int		Fixed::toInt(void) const//ex01, elimina los bits de la parte fraccionaria
 {
 	return (this->_value >> _bits);
 }
 
-float	Fixed::toFloat(void) const//ex01
+float	Fixed::toFloat(void) const//ex01, divide entre 256 y recupera el numero decimal
 {
 	return ((float)this->_value / (1 << _bits));
 }
 
-std::ostream	&operator<<(std::ostream &os, const Fixed &obj)//ex01
+std::ostream	&operator<<(std::ostream &os, const Fixed &obj)//ex01, permite imprimir directamente un objeto
 {
 	os << obj.toFloat();
 	return (os);
