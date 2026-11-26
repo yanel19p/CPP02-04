@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaperalt <yaperalt@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: yaperalt <yaperalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/09 15:43:13 by yaperalt          #+#    #+#             */
-/*   Updated: 2026/11/24 19:50:12 by yaperalt         ###   ########.fr       */
+/*   Updated: 2026/11/26 15:11:24 by yaperalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,27 @@
 # define FIXED_HPP
 
 # include <iostream>
+# include <cmath>
 
+class Fixed
+{
+	private:
+		int					_value;
+		static const int	_bits = 8;
 
-class Fixed {
-    private:
-        int _value;
-        static const int _fractional_bits = 8;
-    public:
-        Fixed();
-        Fixed(const Fixed &copy);
-        Fixed &operator=(const Fixed &copy);//operator overloading
-        ~Fixed();
-        int getRawBits(void) const;
-        void setRawBits(int const raw);
+	public:
+		Fixed();
+		Fixed(const Fixed &copy);
+		Fixed(int const num);
+		Fixed(float const num);
+		Fixed &operator=(const Fixed &copy);
+		~Fixed();
+		int		getRawBits(void) const;
+		void	setRawBits(int const raw);
+		int		toInt(void) const;
+		float	toFloat(void) const;
 };
+
+std::ostream	&operator<<(std::ostream &os, const Fixed &obj);
 
 #endif

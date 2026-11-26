@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yaperalt <yaperalt@student.42malaga.com    +#+  +:+       +#+        */
+/*   By: yaperalt <yaperalt@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/12 14:00:16 by yaperalt          #+#    #+#             */
-/*   Updated: 2026/11/24 19:50:05 by yaperalt         ###   ########.fr       */
+/*   Updated: 2026/11/26 15:13:19 by yaperalt         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,18 @@ Fixed::Fixed() : _value(0) {
 Fixed::Fixed(const Fixed &copy){
     std::cout << "Copy constructor called" << std::endl;
     this->_value = copy.getRawBits();
+}
+
+Fixed::Fixed(int const num)//ex01
+{
+	std::cout << "Int constructor called" << std::endl;
+	this->_value = num << _bits;
+}
+
+Fixed::Fixed(float const num)//ex01
+{
+	std::cout << "Float constructor called" << std::endl;
+	this->_value = roundf(num * (1 << _bits));
 }
 
 Fixed &Fixed::operator=(const Fixed &copy){
@@ -43,4 +55,20 @@ int Fixed::getRawBits(void) const{
 
 void Fixed::setRawBits(int const raw){
     this->_value = raw;
+}
+
+int		Fixed::toInt(void) const//ex01
+{
+	return (this->_value >> _bits);
+}
+
+float	Fixed::toFloat(void) const//ex01
+{
+	return ((float)this->_value / (1 << _bits));
+}
+
+std::ostream	&operator<<(std::ostream &os, const Fixed &obj)//ex01
+{
+	os << obj.toFloat();
+	return (os);
 }
